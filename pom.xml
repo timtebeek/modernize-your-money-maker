@@ -18,9 +18,7 @@
     <modules>
         <module>modernize-tests</module>
         <module>perform-upgrades</module>
-        <module>code-quality-issues</module>
         <module>resolve-security-findings</module>
-        <module>future-proof-nudges</module>
     </modules>
 </project>
 

@@ -1,0 +1,112 @@
+diff --git a/modernize-tests/pom.xml b/modernize-tests/pom.xml
+index 8859895..f157e40 100644
+--- a/modernize-tests/pom.xml
++++ b/modernize-tests/pom.xml
+@@ -9,8 +9,8 @@ org.openrewrite.java.migrate.UpgradeToJava21
+     <version>0.0.1-SNAPSHOT</version>
+ 
+     <properties>
+-        <maven.compiler.source>8</maven.compiler.source>
+-        <maven.compiler.target>8</maven.compiler.target>
++        <maven.compiler.source>21</maven.compiler.source>
++        <maven.compiler.target>21</maven.compiler.target>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+ 
+diff --git a/perform-upgrades/pom.xml b/perform-upgrades/pom.xml
+index 33b256d..9c42f09 100644
+--- a/perform-upgrades/pom.xml
++++ b/perform-upgrades/pom.xml
+@@ -9,8 +9,8 @@ org.openrewrite.java.migrate.UpgradeToJava21
+     <version>0.0.1-SNAPSHOT</version>
+ 
+     <properties>
+-        <maven.compiler.source>8</maven.compiler.source>
+-        <maven.compiler.target>8</maven.compiler.target>
++        <maven.compiler.source>21</maven.compiler.source>
++        <maven.compiler.target>21</maven.compiler.target>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
+ 
+@@ -23,7 +23,7 @@
+         <dependency>
+             <groupId>org.projectlombok</groupId>
+             <artifactId>lombok</artifactId>
+-            <version>1.18.22</version>
++            <version>1.18.30</version>
+             <scope>provided</scope>
+         </dependency>
+         <dependency>
+diff --git a/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerController.java b/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerController.java
+index 59b5522..07d9281 100644
+--- a/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerController.java
++++ b/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerController.java
+@@ -1,6 +1,5 @@ org.openrewrite.java.migrate.UpgradeToJava21
+ package com.github.timtebeek.moneymaker;
+ 
+-import lombok.val;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.stereotype.Controller;
+ import org.springframework.web.bind.annotation.*;
+@@ -29,7 +28,7 @@
+ 
+     @RequestMapping(value = "/statements", method = RequestMethod.GET)
+     public String statements() {
+-        val statements = moneyMakerService.statements();
++        final var statements = moneyMakerService.statements();
+         return statements;
+     }
+ 
+@@ -42,8 +41,8 @@
+     public List<Money> balances() {
+         List<Money> balances = moneyMakerService.balances();
+ 
+-        Money first = balances.get(0);
+-        Money last = balances.get(balances.size() - 1);
++        Money first = balances.getFirst();
++        Money last = balances.getLast();
+         System.out.println("First balance: " + first.getAmount() + " " + first.getCurrency());
+         System.out.println("Last balance: " + last.getAmount() + " " + last.getCurrency());
+ 
+diff --git a/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerService.java b/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerService.java
+index c7292e5..19460bf 100644
+--- a/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerService.java
++++ b/perform-upgrades/src/main/java/com/github/timtebeek/moneymaker/MoneyMakerService.java
+@@ -12,16 +12,17 @@ org.openrewrite.java.migrate.UpgradeToJava21
+     }
+ 
+     public String statements() {
+-        String statements = "Date       | Description          | Amount\n"
+-                + "2018-01-01 | Initial balance      | 0.00\n"
+-                + "2018-01-01 | Salary January       | 1000.00\n"
+-                + "2018-01-02 | Rent January         | -500.00\n";
++        String statements = """
++                Date       | Description          | Amount
++                2018-01-01 | Initial balance      | 0.00
++                2018-01-01 | Salary January       | 1000.00
++                2018-01-02 | Rent January         | -500.00
++                """;
+         return statements;
+     }
+ 
+     public void consume(Object obj) {
+-        if (obj instanceof Money) {
+-            Money money = (Money) obj;
++        if (obj instanceof Money money) {
+             System.out.println("Consumed " + money.getAmount() + " " + money.getCurrency());
+         } else {
+             System.out.println("Consumed object: " + obj);
+diff --git a/code-quality-issues/pom.xml b/code-quality-issues/pom.xml
+index b250caf..c7b9ca1 100644
+--- a/code-quality-issues/pom.xml
++++ b/code-quality-issues/pom.xml
+@@ -9,8 +9,8 @@ org.openrewrite.java.migrate.UpgradeToJava21
+     <version>0.0.1-SNAPSHOT</version>
+ 
+     <properties>
+-        <maven.compiler.source>8</maven.compiler.source>
+-        <maven.compiler.target>8</maven.compiler.target>
++        <maven.compiler.source>21</maven.compiler.source>
++        <maven.compiler.target>21</maven.compiler.target>
+         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     </properties>
