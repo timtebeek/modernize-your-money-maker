@@ -79,6 +79,12 @@ https://docs.openrewrite.org/recipes/java/testing/
 ## Perform upgrades
 Get performance improvements and new features.
 
+### Java 6, 7 , 8, 11 & 17 to 21
+🛤 JAXB, Jakarta, pattern matching, records, text blocks, sequenced collections...
+```shell
+mod run . --recipe UpgradeToJava21
+```
+
 ### Spring Boot 1.x or 2.x to 3.x
 🍃 Only 3.1 supported as of November 2023!
 ```shell
@@ -87,12 +93,6 @@ mod run . --recipe UpgradeSpringBoot_3_1
 🩹 Apply changes from patch.
 ```shell
 mod apply . --last-recipe-run
-```
-
-### Java 6, 7 , 8, 11 & 17 to 21
-🛤 JAXB, Jakarta, pattern matching, records, text blocks, sequenced collections...
-```shell
-mod run . --recipe UpgradeToJava21
 ```
 
 ### Drop Guava
