@@ -123,6 +123,9 @@ https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis
 mod run . --recipe CommonStaticAnalysis
 ```
 
+Compose custom rulesets to suit your preferences.
+https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis
+
 \
 \
 \
@@ -138,14 +141,15 @@ mod run . --recipe CommonStaticAnalysis
 ## Resolve security findings
 Find and fix vulnerable dependencies, zip slip, and more.
 
-### Vulnerable dependencies
-🔓 Patch vulnerable dependency versions.
-```shell
-mod run . --recipe DependencyVulnerabilityCheck
-```
-
 ### Zip slip
 🤐 Find and fix zip slip vulnerabilities.
 ```shell
 mod run . --recipe ZipSlip
+```
+
+### Vulnerable dependencies
+🔓 Patch vulnerable dependency versions.
+https://app.moderne.io/recipes/org.openrewrite.java.dependencies.DependencyVulnerabilityCheck
+```shell
+mod run . --recipe DependencyVulnerabilityCheck
 ```
