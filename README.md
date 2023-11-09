@@ -4,7 +4,7 @@ Run through the Moderne CLI, for convenience and performance.
 
 ## Getting started with the Moderne CLI
 Follow https://docs.moderne.io/user-documentation/getting-started/cli-intro  
-TLDR: Login with GitHub & Download the CLI.
+TLDR: Go to Moderne & Download the CLI.
 
 ### Download recipes
 Synchronize with Moderne to get the latest recipes.  
@@ -50,6 +50,16 @@ mod run . --recipe Assertj
 🩹 Apply changes from patch.
 ```shell
 mod apply . --last-recipe-run
+```
+
+💾 Save our work.
+```shell
+mod commit . --last-recipe-run --message "Hamcrest to AssertJ"
+```
+
+🔙 Or revert for next patch.
+```shell
+mod reset . --hard
 ```
 
 ### JUnit 3 & 4 to JUnit 5
@@ -120,10 +130,11 @@ Fix potential bugs lurking in your code.
 Sixty rules to reduce our tech debt. 🐛🐞🕷🐜🐝🦗🦟🦂  
 https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis
 ```shell
-mod run . --recipe CommonStaticAnalysis
+mod run ../apache/ --recipe CommonStaticAnalysis
 ```
 
-Compose custom rulesets to suit your preferences.
+### Custom rulesets
+Compose your own rulesets to suit your preferences.
 https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis
 
 \
