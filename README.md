@@ -57,7 +57,7 @@ mod apply . --last-recipe-run
 mod commit . --last-recipe-run --message "Hamcrest to AssertJ"
 ```
 
-🔙 Or revert for next patch.
+🔙 Or revert for the next patch.
 ```shell
 mod reset . --hard
 ```
@@ -95,14 +95,20 @@ Get performance improvements and new features.
 mod run . --recipe UpgradeToJava21
 ```
 
+🩹 Apply changes from patch.
+```shell
+mod apply . --last-recipe-run
+```
+
+🔙 Or revert for the next patch.
+```shell
+mod reset . --hard
+```
+
 ### Spring Boot 1.x or 2.x to 3.x
 🍃 Only 3.1 supported as of November 2023!
 ```shell
 mod run . --recipe UpgradeSpringBoot_3_1
-```
-🩹 Apply changes from patch.
-```shell
-mod apply . --last-recipe-run
 ```
 
 ### Drop Guava
