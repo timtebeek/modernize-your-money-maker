@@ -136,7 +136,7 @@ Fix potential bugs lurking in your code.
 Sixty rules to reduce our tech debt. 🐛🐞🕷🐜🐝🦗🦟🦂  
 https://docs.openrewrite.org/recipes/staticanalysis/commonstaticanalysis
 ```shell
-mod run ../apache/ --recipe CommonStaticAnalysis
+mod run ../../apache/ --recipe CommonStaticAnalysis
 ```
 
 ### Custom rulesets
