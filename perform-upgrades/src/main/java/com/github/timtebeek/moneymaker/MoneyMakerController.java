@@ -47,6 +47,9 @@ public class MoneyMakerController {
         System.out.println("First balance: " + first.getAmount() + " " + first.getCurrency());
         System.out.println("Last balance: " + last.getAmount() + " " + last.getCurrency());
 
+        // Bank error in your favor, collect $200
+        balances.add(new Money("USD", 200));
+
         return balances;
     }
 

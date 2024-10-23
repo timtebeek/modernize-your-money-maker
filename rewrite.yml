@@ -1,0 +1,17 @@
+#type: specs.openrewrite.org/v1beta/recipe
+#name: com.yourorg.YourFirstOpenRewriteRecipe
+#displayName: Your first OpenRewrite recipe
+#description: Apply best practices through a number of existing recipes, or write your own recipes for quick changes.
+#recipeList:
+#  - org.openrewrite.java.testing.assertj.Assertj
+#  - org.openrewrite.java.testing.junit5.JUnit5BestPractices
+
+#  - org.openrewrite.java.migrate.UpgradeToJava21
+#  - org.openrewrite.java.spring.boot3.SpringBoot3BestPractices
+
+# https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis
+#  - org.openrewrite.staticanalysis.CommonStaticAnalysis
+
+#  - org.openrewrite.java.ChangeType:
+#      oldFullyQualifiedTypeName: com.github.timtebeek.moneymaker.MoneyMaker
+#      newFullyQualifiedTypeName: com.github.timtebeek.moneymaker.MoneyProducer
