@@ -9,7 +9,6 @@
 #  - org.openrewrite.java.migrate.UpgradeToJava21
 #  - org.openrewrite.java.spring.boot3.SpringBoot3BestPractices
 
-# https://app.moderne.io/recipes/org.openrewrite.staticanalysis.CommonStaticAnalysis
 #  - org.openrewrite.staticanalysis.CommonStaticAnalysis
 
 #  - org.openrewrite.java.ChangeType:
